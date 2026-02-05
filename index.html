@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herrstory — Where Women Tell the Truth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* 🎨 PALETTE: High-Gloss Editorial */
+            --ink: #1a050b;             /* Deepest Black-Red */
+            --maroon: #591C27;          /* Brand Primary */
+            --rose-clay: #A65E68;       /* Accent Tone */
+            --blush: #F7F2F3;           /* Background Paper */
+            --white: #ffffff;
+            --acid: #D4AF37;            /* Gold Accent */
+            
+            /* TYPOGRAPHY */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            
+            /* LAYOUT */
+            --container: 1300px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--blush);
+            color: var(--ink);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── TYPOGRAPHY ─── */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-weight: 400;
+        }
+        
+        .type-hero {
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            color: var(--ink);
+        }
+        .type-hero em {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--maroon);
+        }
+
+        .type-h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        .type-h2 span { color: var(--maroon); font-style: italic; }
+
+        .label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--rose-clay);
+        }
+
+        /* ─── UTILITIES ─── */
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        img { display: block; width: 100%; height: auto; object-fit: cover; }
+        
+        /* ─── BUTTONS ─── */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--maroon);
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            border: 1px solid var(--maroon);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--maroon);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+        }
+        .btn-outline:hover {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        /* ─── HEADER ─── */
+        .nav {
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 40px; width: auto; }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--rose-clay); }
+
+        /* ─── HERO SECTION ─── */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            min-height: 90vh;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .hero-text {
+            padding: 4rem 4rem 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 500px;
+            margin-bottom: 3rem;
+            color: #444;
+        }
+        .hero-img {
+            position: relative;
+            height: 100%;
+            border-left: 1px solid rgba(0,0,0,0.05);
+        }
+        .hero-img img { height: 100%; width: 100%; object-fit: cover; }
+
+        /* ─── HONESTY (Sticky Scroll) ─── */
+        .honesty {
+            background: var(--ink);
+            color: var(--blush);
+            padding: 8rem 0;
+        }
+        .sticky-wrapper {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 6rem;
+        }
+        .sticky-header {
+            position: sticky;
+            top: 4rem;
+            height: fit-content;
+        }
+        .honesty-content p {
+            font-size: 1.5rem;
+            font-family: var(--font-display);
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        .honesty-content strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* ─── WHY (Full Width Break) ─── */
+        .why {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .why-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+        .why-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
+        
+        .why-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem;
+            max-width: 800px;
+            text-align: center;
+        }
+        .why-quote {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: var(--maroon);
+        }
+
+        /* ─── FEATURES (Clean Grid) ─── */
+        .features {
+            padding: 10rem 0;
+            background: var(--white);
+        }
+        .feature-row {
+            display: grid;
+            grid-template-columns: 120px 1fr 1fr;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding: 4rem 0;
+            align-items: flex-start;
+            transition: background 0.3s;
+        }
+        .feature-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .feature-row:hover { background: #fbfbfb; }
+        
+        .art-icon {
+            width: 48px; height: 48px;
+            stroke: var(--maroon);
+            stroke-width: 1.2;
+            fill: none;
+        }
+        .feature-content h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .feature-desc { font-size: 1.1rem; color: #555; line-height: 1.7; padding-top: 0.5rem; }
+
+        /* ─── EVENT BANNER ─── */
+        .event-banner {
+            background: var(--maroon);
+            color: var(--white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        /* Abstract texture overlay */
+        .event-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonials { padding: 8rem 0; }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        .test-card { padding-top: 2rem; border-top: 2px solid var(--maroon); }
+        .test-quote {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: var(--ink);
+        }
+        .test-author { display: flex; align-items: center; gap: 1rem; }
+        .test-author img { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--rose-clay); }
+        .test-info h4 { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+        .test-info p { font-size: 0.8rem; color: #666; }
+
+        /* ─── NEWSLETTER ─── */
+        .newsletter {
+            padding: 6rem 0;
+            background: var(--rose-clay);
+            color: var(--white);
+        }
+        .newsletter-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .nl-form {
+            display: flex;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+        .nl-input {
+            flex: 1;
+            padding: 1rem 0;
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+        }
+        .nl-input::placeholder { color: rgba(255,255,255,0.6); }
+        .nl-input:focus { outline: none; }
+        .nl-btn {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            padding: 6rem 0 3rem;
+            background: var(--white);
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .footer-col h4 {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: var(--rose-clay);
+        }
+        .footer-links a {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--ink);
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+        .footer-links a:hover { opacity: 1; color: var(--maroon); }
+        
+        .social-flex { display: flex; gap: 1rem; }
+        .social-flex svg { width: 20px; height: 20px; color: var(--ink); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-text { padding: 4rem 2rem; order: 1; }
+            .hero-img { height: 50vh; order: 0; }
+            .sticky-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+            .feature-row { grid-template-columns: 1fr; gap: 1rem; }
+            .event-grid, .newsletter-wrapper, .test-grid, .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="#" class="logo">
+            <img src="images/logo.png" alt="Herrstory">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#join" style="color: var(--maroon); font-weight: 700; border-bottom: 1px solid var(--maroon);">Join Community</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-text">
+            <span class="label">A Movement for Women</span>
+            <h1 class="type-hero">
+                Where women tell the <em>truth</em> about what it really takes to build.
+            </h1>
+            <p class="hero-subtitle">
+                Herrstory exists because women deserve a space where strength and softness coexist— where rebuilding isn't a setback, it's part of the storyline.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#join" class="btn">Join Community</a>
+                <a href="#events" class="btn btn-outline">View Upcoming Events</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="images/hero.jpg" alt="Woman in white suit">
+        </div>
+    </header>
+
+    <section class="honesty" id="about">
+        <div class="container sticky-wrapper">
+            <div class="sticky-header">
+                <span class="label" style="color: var(--acid);">Our Belief</span>
+                <h2 class="type-h2" style="color: var(--white);">This is not about being louder. It's about being <em>honest.</em></h2>
+            </div>
+            <div class="honesty-content">
+                <p>
+                    We believe leadership is nuanced. Ambition can coexist with reflection. And growth doesn't have to come at the cost of yourself.
+                </p>
+                <p>
+                    <strong>Herrstory exists for women who are navigating responsibility, ambition, and change—and want a space that respects the complexity of that work.</strong>
+                </p>
+                <p>
+                    Here, we talk about leadership, business, motherhood, identity, reinvention, and the seasons in between—with honesty and respect for what it takes to show up fully.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why">
+        <div class="why-bg">
+            <img src="images/lifestyle.jpg" alt="Women connecting">
+        </div>
+        <div class="why-content">
+            <span class="label">Why Herrstory Exists</span>
+            <div class="why-quote">
+                "There are plenty of places telling women to be faster, louder, or more visible. Herrstory exists for something different."
+            </div>
+            <p style="font-size: 1.1rem; line-height: 1.7; color: #555;">
+                This space is for women who carry responsibility with intention and value depth over noise. A community for women building with purpose—choosing honest support over polished performance.
+            </p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <span class="label">What We Do</span>
+            
+            <div class="feature-row">
+                <div class="icon-wrap">
+                    <svg class="art-icon" viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="20" stroke-dasharray="2 4"/>
+                        <path d="M25 5 L25 45 M5 25 L45 25" />
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Conversations</h3>
+                </div>
+                <div class="feature-desc">
+                    Thoughtful dialogue with women who are building, leading, and navigating real life — without filters or formulas.
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="icon-wrap">
+                    <svg class="art-icon" viewBox="0 0 50 50">
+                        <path d="M5 45 L5 25 Q5 5 25 5 Q45 5 45 25 L45 45" />
+                        <line x1="5" y1="45" x2="45" y2="45" />
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Community</h3>
+                </div>
+                <div class="feature-desc">
+                    A curated space for connection, rooted in trust, shared experience, and honest support.
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="icon-wrap">
+                    <svg class="art-icon" viewBox="0 0 50 50">
+                        <polygon points="25 5 45 45 5 45" stroke-linejoin="round"/>
+                        <circle cx="25" cy="28" r="4" fill="var(--maroon)" stroke="none"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Experiences</h3>
+                </div>
+                <div class="feature-desc">
+                    Live events and gatherings designed to create meaningful connection, not just networking.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="event-banner" id="events">
+        <div class="container event-grid">
+            <div>
+                <span class="label" style="color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3);">Upcoming Event</span>
+                <h2 class="type-h2">View Upcoming Events</h2>
+                <p style="font-size: 1.15rem; max-width: 600px; opacity: 0.9; margin-top: 1rem;">
+                    Live events and gatherings designed to create meaningful connection and elevate women's voices. Join us for an experience that will change the way you see yourself and the world.
+                </p>
+            </div>
+            <a href="#" class="btn" style="background: var(--white); color: var(--maroon); border-color: var(--white);">View Upcoming Events</a>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <span class="label">Testimonials</span>
+            <h2 class="type-h2">Voices from the Community</h2>
+
+            <div class="test-grid">
+                <div class="test-card">
+                    <div class="test-quote">
+                        "Joining Herrstory gave me the courage to share my story openly. The community is empowering, supportive, and inspiring — I finally feel heard."
+                    </div>
+                    <div class="test-author">
+                        <img src="images/testimonial-1.jpg" alt="Storyteller">
+                        <div class="test-info">
+                            <h4>Storyteller & Member</h4>
+                            <p>CEO</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <div class="test-quote">
+                        "The events are not just inspiring—they change the way you see yourself and the world. Herrstory truly elevates women's voices."
+                    </div>
+                    <div class="test-author">
+                        <img src="images/testimonial-2.avif" alt="Attendee">
+                        <div class="test-info">
+                            <h4>Event Attendee</h4>
+                            <p>CEO</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <div class="test-quote">
+                        "I've connected with amazing women who motivate me every day. Herrstory is more than a community; it's a movement."
+                    </div>
+                    <div class="test-author">
+                        <img src="images/testimonial-3.jpg" alt="Participant">
+                        <div class="test-info">
+                            <h4>Workshop Participant</h4>
+                            <p>CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter" id="join">
+        <div class="container newsletter-wrapper">
+            <div class="newsletter-content">
+                <h2 class="type-h2" style="margin-bottom: 0.5rem;">Stay Connected</h2>
+                <p>Subscribe to our newsletter for the latest Herrstory updates and inspiring stories.</p>
+            </div>
+            <form class="nl-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" class="nl-input" placeholder="Enter your email" required>
+                <button type="submit" class="nl-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo.png" alt="Herrstory" style="height: 30px; width: auto; margin-bottom: 1.5rem;">
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #555; max-width: 300px;">
+                        Herrstory is a women-focused storytelling community & movement empowering women to embrace their truth and elevate their voices.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#events">Events</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in Touch</h4>
+                    <div class="footer-links">
+                        <a href="mailto:hello@herrstory.com">hello@herrstory.com</a>
+                        <a href="tel:+0123456789">+0123456789</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-flex">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">X</a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #eee; padding-top: 2rem; display: flex; justify-content: space-between; color: #999; font-size: 0.85rem;">
+                <p>&copy; 2024 Herrstory. All rights reserved.</p>
+                <div>
+                    <a href="#" style="margin-right: 1rem;">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
