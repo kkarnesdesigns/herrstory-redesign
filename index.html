@@ -189,6 +189,30 @@
         .section-beliefs {
             padding: 10rem 0;
             background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .section-beliefs::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(89,28,39,0.04) 0%, rgba(89,28,39,0.02) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .section-beliefs::after {
+            content: '';
+            position: absolute;
+            bottom: -15%;
+            left: -5%;
+            width: 45%;
+            height: 70%;
+            background: radial-gradient(ellipse at center, rgba(212,175,55,0.06) 0%, rgba(212,175,55,0.02) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
         .beliefs-grid {
             display: grid;
@@ -402,7 +426,7 @@
     </section>
 
     <section class="section-beliefs">
-        <div class="container">
+        <div class="container" style="position: relative; z-index: 1;">
             <h2 class="type-h2">What We Believe</h2>
             <p class="text-body" style="margin-bottom: 2rem;">At HERRstory, we believe:</p>
             <div class="beliefs-grid">
