@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════════
+   ANIMATIONS & TRANSITIONS REFERENCE
+   Stripped from index.html for later use
+   ═══════════════════════════════════════════════ */
+
+/* ─── GLOBAL LINK TRANSITION ─── */
+a {
+    transition: 0.3s ease;
+}
+
+/* ─── BUTTON HOVER ─── */
+.btn {
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background: transparent;
+    color: var(--maroon);
+}
+.btn-outline:hover {
+    background: var(--ink);
+    color: var(--white);
+}
+
+/* ─── NAV LINK HOVER ─── */
+.nav-links a:hover {
+    color: var(--rose-clay);
+}
+
+/* ─── FEATURE ROW HOVER ─── */
+.feature-row {
+    transition: padding 0.3s;
+}
+.feature-row:hover {
+    padding-left: 2rem;
+    background: rgba(255,255,255,0.5);
+}
+
+/* ─── TIER CARD HOVER ─── */
+.tier-card {
+    transition: all 0.3s;
+}
+.tier-card:hover {
+    border-color: var(--maroon);
+    transform: translateY(-5px);
+}

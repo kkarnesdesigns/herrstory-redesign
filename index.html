@@ -84,7 +84,7 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        a { text-decoration: none; color: inherit; }
         img { display: block; width: 100%; height: auto; object-fit: cover; }
         
         /* ─── BUTTONS ─── */
@@ -100,20 +100,11 @@
             font-weight: 700;
             border: 1px solid var(--maroon);
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            background: transparent;
-            color: var(--maroon);
         }
         .btn-outline {
             background: transparent;
             border: 1px solid var(--ink);
             color: var(--ink);
-        }
-        .btn-outline:hover {
-            background: var(--ink);
-            color: var(--white);
         }
 
         /* ─── HEADER ─── */
@@ -137,7 +128,6 @@
             letter-spacing: 0.05em;
             font-weight: 700;
         }
-        .nav-links a:hover { color: var(--rose-clay); }
 
         /* ─── HERO SECTION ─── */
         .hero {
@@ -252,10 +242,8 @@
             border-top: 1px solid rgba(89, 28, 39, 0.15);
             padding: 3.5rem 0;
             align-items: center;
-            transition: padding 0.3s;
         }
         .feature-row:last-child { border-bottom: 1px solid rgba(89, 28, 39, 0.15); }
-        .feature-row:hover { padding-left: 2rem; background: rgba(255,255,255,0.5); }
         
         .art-icon {
             width: 60px; height: 55px;
@@ -339,11 +327,6 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            transition: all 0.3s;
-        }
-        .tier-card:hover {
-            border-color: var(--maroon);
-            transform: translateY(-5px);
         }
         .tier-name {
             font-family: var(--font-display);
