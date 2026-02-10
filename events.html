@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERRstory — Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;700&family=Lexend+Giga:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #1a050b;
+            --maroon: #591C27;
+            --rose-clay: #A65E68;
+            --blush: #F7F2F3;
+            --white: #ffffff;
+            --acid: #D4AF37;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-caps: 'Lexend Giga', sans-serif;
+            --container: 1300px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--blush);
+            color: var(--ink);
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-weight: 400;
+        }
+
+        .type-hero {
+            font-size: clamp(4rem, 9vw, 8rem);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            color: var(--ink);
+        }
+
+        .type-h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .label {
+            font-family: var(--font-caps);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--rose-clay);
+        }
+
+        .text-body {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #444;
+            max-width: 600px;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; width: 100%; height: auto; object-fit: cover; }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--maroon);
+            color: var(--white);
+            font-family: var(--font-caps);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            border: 1px solid var(--maroon);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--maroon);
+        }
+
+        /* ─── HEADER ─── */
+        .nav {
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--maroon); }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--font-caps);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--rose-clay); }
+
+        /* ─── PAGE HERO ─── */
+        .page-hero {
+            padding: 8rem 0 6rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .page-hero .tagline {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--rose-clay);
+            max-width: 700px;
+            line-height: 1.4;
+        }
+
+        /* ─── PHILOSOPHY SECTION ─── */
+        .section-philosophy {
+            padding: 10rem 0;
+            background: var(--white);
+        }
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+        .philosophy-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #444;
+        }
+        .philosophy-callout {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            line-height: 1.3;
+            color: var(--maroon);
+            font-style: italic;
+            margin-top: 3rem;
+        }
+
+        /* ─── WHAT MAKES DIFFERENT ─── */
+        .section-different {
+            padding: 10rem 0;
+            background: var(--blush);
+        }
+        .different-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+        .different-card {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 2rem;
+        }
+        .different-card h3 {
+            font-size: 2rem;
+            color: var(--maroon);
+            margin-bottom: 1.5rem;
+        }
+        .different-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* ─── HOW WE GATHER ─── */
+        .section-gather {
+            background: #2a1015;
+            color: var(--blush);
+            padding: 10rem 0;
+        }
+        .gather-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+        .gather-list {
+            list-style: none;
+        }
+        .gather-list li {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            font-size: 1.4rem;
+            font-family: var(--font-display);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .gather-list li::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--acid);
+            border-radius: 50%;
+            display: block;
+            flex-shrink: 0;
+        }
+        .gather-note {
+            font-size: 1.1rem;
+            color: var(--blush);
+            opacity: 0.7;
+            margin-top: 3rem;
+            line-height: 1.7;
+        }
+
+        /* ─── CTA SECTION ─── */
+        .section-cta {
+            padding: 8rem 0;
+            background: var(--white);
+            text-align: center;
+        }
+        .cta-statement {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.3;
+            color: var(--maroon);
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            padding: 8rem 0 4rem;
+            background: var(--ink);
+            color: var(--blush);
+            text-align: center;
+        }
+        .footer-statement {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            margin-bottom: 4rem;
+            line-height: 1.1;
+        }
+        .footer-statement span { display: block; color: var(--acid); font-style: italic; }
+
+        @media (max-width: 1024px) {
+            .philosophy-grid, .gather-grid, .different-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .nav-links { display: none; }
+            .type-hero { font-size: 4rem; }
+            .cta-statement { font-size: 1.8rem; padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="HERRstory" style="height: 40px; width: auto;"></a>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html" style="color: var(--maroon); border-bottom: 1px solid var(--maroon);">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <span class="label">Gather</span>
+            <h1 class="type-hero">Events</h1>
+            <p class="tagline">Experiences designed for meaningful connection—not performative networking.</p>
+        </div>
+    </header>
+
+    <section class="section-philosophy">
+        <div class="container philosophy-grid">
+            <div>
+                <span class="label">Our Approach</span>
+                <h2 class="type-h2">Why these<br>events matter.</h2>
+            </div>
+            <div>
+                <p class="philosophy-text">
+                    Herrstory events are created for women who value depth, honesty, and real conversation. These are spaces to connect, reflect, and engage—without pressure, posturing, or performance.
+                </p>
+                <p class="philosophy-callout">
+                    Our events are not about being seen. They are about being present.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-different">
+        <div class="container">
+            <span class="label">The Difference</span>
+            <h2 class="type-h2">What makes HERRstory events different.</h2>
+            <div class="different-grid">
+                <div class="different-card">
+                    <h3>Intentional Conversations</h3>
+                    <p>Thoughtfully guided discussions with women navigating leadership, business, identity, and growth.</p>
+                </div>
+                <div class="different-card">
+                    <h3>Curated Community</h3>
+                    <p>Our events are designed for connection rooted in trust, shared experience, and mutual respect.</p>
+                </div>
+                <div class="different-card">
+                    <h3>Real Engagement</h3>
+                    <p>No panels for show. No surface-level networking. Just honest dialogue and meaningful exchange.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-gather">
+        <div class="container">
+            <span class="label" style="color: var(--acid);">How We Gather</span>
+            <h2 class="type-h2" style="color: var(--white); margin-bottom: 4rem;">Formats designed for depth.</h2>
+            <div class="gather-grid">
+                <ul class="gather-list">
+                    <li>Live conversations and moderated discussions</li>
+                    <li>Community-led dialogues</li>
+                    <li>Small-group gatherings</li>
+                    <li>Special guest conversations</li>
+                </ul>
+                <div>
+                    <p style="font-size: 1.4rem; font-family: var(--font-display); color: var(--blush); line-height: 1.5;">
+                        Virtual and in-person experiences available.
+                    </p>
+                    <p class="gather-note">
+                        To maintain quality and intention, all Herrstory events are hosted within our private Skool space.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-cta">
+        <div class="container">
+            <p class="cta-statement">
+                Every gathering is an invitation to show up as you are—and leave more connected than when you arrived.
+            </p>
+            <a href="contact.html" class="btn">Join the Community</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h2 class="footer-statement">
+                HERRstory is not something you follow.<br>
+                It's a place you show up.
+                <span>Bring Your Voice.</span>
+            </h2>
+            <div style="font-size: 0.9rem; opacity: 0.5; margin-top: 4rem;">
+                &copy; 2026 HERRstory. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
