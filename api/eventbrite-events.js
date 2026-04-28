@@ -60,8 +60,8 @@ export default async function handler(req, res) {
     }
 
     const eventsUrl =
-      `https://www.eventbriteapi.com/v3/organizations/${orgId}/events/` +
-      `?organizer_id=${organizerId}&status=live&order_by=start_asc&expand=venue,category`;
+      `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/` +
+      `?status=live&order_by=start_asc&expand=venue,category`;
     const eventsRes = await fetch(eventsUrl, auth);
     if (!eventsRes.ok) throw new Error(`Events fetch failed (${eventsRes.status}): ${await eventsRes.text()}`);
     const data = await eventsRes.json();
